@@ -88,17 +88,33 @@
         </div>
         
         <nav class="flex flex-col gap-5 font-bold text-lg p-6 flex-1 justify-center" id="desktop-nav">
-            <a href="#about" class="nav-link bg-white hover:bg-pink px-4 py-3 neo-border neo-shadow-sm transition-all transform hover:translate-x-2" data-target="about">关于我</a>
-            <a href="#xiaohongshu" class="nav-link bg-white hover:bg-[#ff2442] hover:text-white px-4 py-3 neo-border neo-shadow-sm transition-all transform hover:translate-x-2" data-target="xiaohongshu">小红书运营</a>
-            <a href="#douyin" class="nav-link bg-white hover:bg-black hover:text-white px-4 py-3 neo-border neo-shadow-sm transition-all transform hover:translate-x-2" data-target="douyin">抖音短视频</a>
-            <a href="#wechat" class="nav-link bg-white hover:bg-green px-4 py-3 neo-border neo-shadow-sm transition-all transform hover:translate-x-2" data-target="wechat">微信公众号</a>
-            <a href="#internal" class="nav-link bg-white hover:bg-yellow px-4 py-3 neo-border neo-shadow-sm transition-all transform hover:translate-x-2" data-target="internal">企业内部运营</a>
+            <a href="#about" class="nav-link bg-white hover:bg-pink px-6 py-3 rounded-full text-center neo-border neo-shadow-sm transition-all transform hover:translate-x-2" data-target="about">关于我</a>
+            <a href="#xiaohongshu" class="nav-link bg-white hover:bg-[#ff2442] hover:text-white px-6 py-3 rounded-full text-center neo-border neo-shadow-sm transition-all transform hover:translate-x-2" data-target="xiaohongshu">小红书运营</a>
+            <a href="#douyin" class="nav-link bg-white hover:bg-black hover:text-white px-6 py-3 rounded-full text-center neo-border neo-shadow-sm transition-all transform hover:translate-x-2" data-target="douyin">抖音短视频</a>
+            <a href="#wechat" class="nav-link bg-white hover:bg-green px-6 py-3 rounded-full text-center neo-border neo-shadow-sm transition-all transform hover:translate-x-2" data-target="wechat">微信公众号</a>
+            <a href="#internal" class="nav-link bg-white hover:bg-yellow px-6 py-3 rounded-full text-center neo-border neo-shadow-sm transition-all transform hover:translate-x-2" data-target="internal">企业内部运营</a>
         </nav>
 
         <div class="p-6 border-t-4 border-black text-center bg-bg">
-            <div class="flex justify-center gap-4 mb-3 text-xl">
-                <a href="tel:18928051179" class="hover:text-pink transition-colors"><i class="fas fa-phone"></i></a>
-                <a href="mailto:529517915@qq.com" class="hover:text-blue transition-colors"><i class="fas fa-envelope"></i></a>
+            <div class="flex justify-center gap-6 mb-3 text-xl">
+                <button onclick="copyToClipboard('18928051179', '号码')" class="relative group hover:text-pink transition-colors cursor-pointer">
+                    <i class="fas fa-phone"></i>
+                    <!-- 电话气泡 -->
+                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white text-black text-xs font-bold px-3 py-1.5 neo-border neo-shadow-sm whitespace-nowrap">
+                            点击复制电话：18928051179
+                        </div>
+                    </div>
+                </button>
+                <button onclick="copyToClipboard('529517915@qq.com', '邮箱')" class="relative group hover:text-blue transition-colors cursor-pointer">
+                    <i class="fas fa-envelope"></i>
+                    <!-- 邮箱气泡 -->
+                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white text-black text-xs font-bold px-3 py-1.5 neo-border neo-shadow-sm whitespace-nowrap">
+                            点击复制邮箱：529517915@qq.com
+                        </div>
+                    </div>
+                </button>
             </div>
             <p class="font-bold text-xs">© 2026 Ruan Qiuyan</p>
         </div>
@@ -123,16 +139,62 @@
                     <div class="absolute -top-4 -right-4 w-24 h-24 bg-pink neo-border rounded-full z-0"></div>
                     <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-blue neo-border rounded-full z-0"></div>
                     
-                    <div class="w-32 h-32 md:w-64 md:h-64 flex-shrink-0 neo-border neo-shadow bg-yellow z-10 rounded-full overflow-hidden mx-auto">
-                        <!-- 头像 -->
-                        <img src="./zuopingji_image/rqy_photo.jpg" alt="阮秋雁" class="w-full h-full object-cover">
+                    <div class="flex flex-col items-center gap-6 z-10">
+                        <div class="w-32 h-32 md:w-64 md:h-64 flex-shrink-0 neo-border neo-shadow bg-yellow rounded-full overflow-hidden mx-auto">
+                            <!-- 头像 -->
+                            <img src="./zuopingji_image/rqy_photo.jpg" alt="阮秋雁" class="w-full h-full object-cover">
+                        </div>
+                        <!-- 电脑端联系方式 (仅在 md 及以上屏幕显示) -->
+                        <div class="hidden md:flex flex-col gap-3 w-full max-w-[240px]">
+                            <button onclick="copyToClipboard('18928051179', '号码')" class="bg-white hover:bg-yellow neo-border rounded-full px-4 py-2 transition-colors flex items-center justify-center font-bold text-sm w-full cursor-pointer relative group">
+                                <i class="fas fa-phone mr-2"></i> 18928051179
+                                <!-- 电话气泡 -->
+                                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                    <div class="bg-white text-black text-xs font-bold px-3 py-1.5 neo-border neo-shadow-sm whitespace-nowrap">
+                                        点击复制号码
+                                    </div>
+                                </div>
+                            </button>
+                            <button onclick="copyToClipboard('529517915@qq.com', '邮箱')" class="bg-white hover:bg-blue neo-border rounded-full px-4 py-2 transition-colors flex items-center justify-center font-bold text-sm w-full cursor-pointer relative group">
+                                <i class="fas fa-envelope mr-2"></i> 529517915@qq.com
+                                <!-- 邮箱气泡 -->
+                                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                    <div class="bg-white text-black text-xs font-bold px-3 py-1.5 neo-border neo-shadow-sm whitespace-nowrap">
+                                        点击复制邮箱地址
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
                     </div>
                     
                     <div class="flex-1 text-center md:text-left z-10">
                         <div class="inline-block bg-green text-black font-bold px-4 py-1 neo-border neo-shadow-sm mb-4 transform -rotate-2">
                             Hello, 我是
                         </div>
-                        <h1 class="text-5xl md:text-7xl font-black mb-4 uppercase tracking-tight">阮秋雁</h1>
+                        <div class="flex flex-col md:flex-row items-center md:items-stretch gap-4 md:gap-5 mb-6">
+                            <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight leading-none whitespace-nowrap flex items-center">阮秋雁</h1>
+                            <!-- 手机端联系方式 (仅在 md 以下屏幕显示) -->
+                            <div class="flex md:hidden flex-col justify-between gap-2 py-1 w-full">
+                                <button onclick="copyToClipboard('18928051179', '号码')" class="bg-white hover:bg-yellow neo-border rounded-full px-4 py-1 transition-colors flex items-center justify-center font-bold text-sm w-full cursor-pointer relative group">
+                                    <i class="fas fa-phone mr-2"></i> 18928051179
+                                    <!-- 电话气泡 -->
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                        <div class="bg-white text-black text-xs font-bold px-3 py-1.5 neo-border neo-shadow-sm whitespace-nowrap">
+                                            点击复制号码
+                                        </div>
+                                    </div>
+                                </button>
+                                <button onclick="copyToClipboard('529517915@qq.com', '邮箱')" class="bg-white hover:bg-blue neo-border rounded-full px-4 py-1 transition-colors flex items-center justify-center font-bold text-sm w-full cursor-pointer relative group">
+                                    <i class="fas fa-envelope mr-2"></i> 529517915@qq.com
+                                    <!-- 邮箱气泡 -->
+                                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                        <div class="bg-white text-black text-xs font-bold px-3 py-1.5 neo-border neo-shadow-sm whitespace-nowrap">
+                                            点击复制邮箱地址
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
                         <h2 class="text-2xl md:text-3xl font-bold mb-6">
                             <span class="bg-pink px-2 inline-block mb-2">意向岗位：</span><br>
                             <span class="bg-pink px-2 inline-block">新媒体运营/内容运营/品牌营销方向</span>
@@ -144,7 +206,7 @@
                             <span class="bg-white neo-border px-3 py-1 neo-shadow-sm"><i class="fas fa-map-marker-alt mr-2"></i>珠海</span>
                         </div>
                         
-                        <div class="bg-white neo-border p-4 neo-shadow-sm text-base md:text-lg font-medium leading-relaxed text-left">
+                        <div class="bg-white neo-border rounded-2xl p-4 md:p-6 neo-shadow-sm text-base md:text-lg font-medium leading-relaxed text-left">
                             <p>🔥 5 年互联网上市公司内容运营经验。运营百万粉丝公号，从 0 搭建万粉小红书官号。擅长内容创作与创意输出，文字功底扎实，有网感。</p>
                             <p class="mt-2">✨ 熟练掌握 PS、剪映等各类图片编辑和视频剪辑工具。熟练运用 AI 工具为内容运营全流程赋能提效。</p>
                         </div>
@@ -172,11 +234,11 @@
                         <div class="flex gap-3 text-center mb-4">
                             <div class="bg-blue px-3 py-2 neo-border flex-1">
                                 <div class="text-xl font-black">221%</div>
-                                <div class="font-bold text-xs">粉丝增幅</div>
+                                <div class="font-bold text-xs">2025年粉丝增幅</div>
                             </div>
                             <div class="bg-green px-3 py-2 neo-border flex-1">
                                 <div class="text-xl font-black">22.6w+</div>
-                                <div class="font-bold text-xs">笔记观看量</div>
+                                <div class="font-bold text-xs">2025年笔记观看量</div>
                             </div>
                         </div>
                         <a href="https://xhslink.com/m/AwzLllfZ0UL" target="_blank" class="block text-center bg-[#ff2442] text-white font-bold py-2 neo-button text-sm">访问主页 <i class="fas fa-arrow-right"></i></a>
@@ -190,7 +252,7 @@
                         <div class="flex gap-3 text-center mb-4">
                             <div class="bg-orange px-3 py-2 neo-border flex-1">
                                 <div class="text-xl font-black">39.5w</div>
-                                <div class="font-bold text-xs">累计观看</div>
+                                <div class="font-bold text-xs">2025年累计观看</div>
                             </div>
                             <div class="bg-blue px-3 py-2 neo-border flex-1">
                                 <div class="text-xl font-black">11篇</div>
@@ -532,13 +594,13 @@
                 </div>
 
                 <div class="flex flex-col md:flex-row flex-wrap justify-center gap-4 md:gap-6 w-full max-w-xs md:max-w-none mx-auto">
-                    <button onclick="openImageModal('./zuopingji_image/neibu_image (1).png')" class="px-4 py-3 md:px-8 md:py-4 bg-pink font-bold neo-button text-base md:text-xl w-full md:w-auto">
+                    <button onclick="openImageModal('./zuopingji_image/neibu_image (1).png')" class="px-4 py-3 md:px-8 md:py-4 bg-pink font-bold neo-button rounded-xl text-base md:text-xl w-full md:w-auto">
                         <i class="fas fa-image mr-2"></i> 内部活动案例一
                     </button>
-                    <button onclick="openImageModal('./zuopingji_image/neibu_image (2).png')" class="px-4 py-3 md:px-8 md:py-4 bg-blue font-bold neo-button text-base md:text-xl w-full md:w-auto">
+                    <button onclick="openImageModal('./zuopingji_image/neibu_image (2).png')" class="px-4 py-3 md:px-8 md:py-4 bg-blue font-bold neo-button rounded-xl text-base md:text-xl w-full md:w-auto">
                         <i class="fas fa-image mr-2"></i> 内部活动案例二
                     </button>
-                    <button onclick="openImageModal('./zuopingji_image/neibu_image (3).png')" class="px-4 py-3 md:px-8 md:py-4 bg-green font-bold neo-button text-base md:text-xl w-full md:w-auto">
+                    <button onclick="openImageModal('./zuopingji_image/neibu_image (3).png')" class="px-4 py-3 md:px-8 md:py-4 bg-green font-bold neo-button rounded-xl text-base md:text-xl w-full md:w-auto">
                         <i class="fas fa-image mr-2"></i> 内部活动案例三
                     </button>
                 </div>
@@ -559,8 +621,37 @@
         </div>
     </div>
 
+    <!-- 复制成功提示 (Toast) -->
+    <div id="toast-notification" class="fixed top-10 left-1/2 transform -translate-x-1/2 bg-black text-white px-6 py-3 rounded-full font-bold z-[200] transition-all duration-300 opacity-0 translate-y-[-20px] neo-shadow pointer-events-none">
+        已复制
+    </div>
+
     <!-- 简单的滚动监听脚本，用于高亮当前侧边栏 -->
     <script>
+        // 复制到剪贴板逻辑
+        let toastTimeout;
+        function copyToClipboard(text, type) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('已复制' + type + '：' + text);
+            }).catch(err => {
+                console.error('复制失败:', err);
+                showToast('复制失败，请手动复制');
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            toast.textContent = message;
+            toast.classList.remove('opacity-0', 'translate-y-[-20px]');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-[-20px]');
+            }, 2000);
+        }
+
         // 图片放大模态框逻辑
         function openImageModal(imageSrc) {
             const modal = document.getElementById('image-modal');
