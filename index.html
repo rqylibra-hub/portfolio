@@ -75,6 +75,11 @@
             transform: translateX(8px);
             box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
         }
+
+        /* 修复移动端点击穿透问题：确保点击始终落在 a 标签本身上 */
+        nav a > * {
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-pink selection:text-black flex h-screen overflow-hidden bg-bg">
@@ -785,17 +790,29 @@
                 observer.observe(section);
             });
 
-            // 移动端平滑滚动兼容性优化
+            // 移动端平滑滚动兼容性优化（针对部分安卓浏览器）
             document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    const targetId = this.getAttribute('href').substring(1);
+                    e.preventDefault();
+                    // 强制获取当前绑定的 a 标签的 href，避免点击到内部图标时获取失败
+                    const href = e.currentTarget.getAttribute('href');
+                    if (!href) return;
+                    
+                    const targetId = href.substring(1);
                     const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                    const mainContent = document.getElementById('main-content');
+                    
+                    if (targetElement && mainContent) {
+                        try {
+                            // 优先使用原生平滑滚动
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        } catch (error) {
+                            // 兼容老旧安卓浏览器的降级方案：直接修改滚动条位置
+                            mainContent.scrollTop = targetElement.offsetTop;
+                        }
                     }
                 });
             });
