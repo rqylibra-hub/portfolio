@@ -121,12 +121,37 @@
     </aside>
 
     <!-- 底部导航栏 (Mobile) -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full bg-white neo-border border-b-0 border-l-0 border-r-0 z-50 flex justify-around p-2 pb-6 text-xs font-bold">
-        <a href="#about" class="p-2 hover:bg-pink rounded flex-1 flex flex-col items-center justify-end group"><i class="fas fa-user mb-1.5 text-[20px] leading-none text-pink group-hover:text-black transition-colors"></i><span>关于</span></a>
-        <a href="#xiaohongshu" class="p-2 hover:bg-[#ff2442] hover:text-white rounded flex-1 flex flex-col items-center justify-end group"><img src="./zuopingji_image/小红书.svg" class="w-5 h-5 mb-1.5" alt="小红书"><span>小红书</span></a>
-        <a href="#douyin" class="p-2 hover:bg-black hover:text-white rounded flex-1 flex flex-col items-center justify-end group"><i class="fa-brands fa-tiktok mb-1.5 text-[20px] leading-none text-black group-hover:text-white transition-colors"></i><span>抖音</span></a>
-        <a href="#wechat" class="p-2 hover:bg-green rounded flex-1 flex flex-col items-center justify-end group"><i class="fa-brands fa-weixin mb-1.5 text-[20px] leading-none text-green group-hover:text-black transition-colors"></i><span>公众号</span></a>
-        <a href="#internal" class="p-2 hover:bg-yellow rounded flex-1 flex flex-col items-center justify-end group"><i class="fas fa-users mb-1.5 text-[20px] leading-none text-yellow group-hover:text-black transition-colors"></i><span>内部</span></a>
+    <nav class="md:hidden fixed bottom-0 left-0 w-full bg-white neo-border border-b-0 border-l-0 border-r-0 z-50 flex justify-around p-[min(2vw,8px)] pb-[min(6vw,24px)] font-bold">
+        <a href="#about" class="p-[min(2vw,8px)] hover:bg-pink rounded flex-1 flex flex-col items-center justify-end group">
+            <div class="h-[min(6vw,28px)] flex items-center justify-center mb-[min(1.5vw,6px)]">
+                <i class="fas fa-user text-[min(5.5vw,24px)] leading-none text-pink group-hover:text-black transition-colors"></i>
+            </div>
+            <span class="text-[min(3.2vw,14px)] leading-none">关于</span>
+        </a>
+        <a href="#xiaohongshu" class="p-[min(2vw,8px)] hover:bg-[#ff2442] hover:text-white rounded flex-1 flex flex-col items-center justify-end group">
+            <div class="h-[min(6vw,28px)] flex items-center justify-center mb-[min(1.5vw,6px)]">
+                <img src="./zuopingji_image/小红书.svg" class="w-[min(5.5vw,24px)] h-[min(5.5vw,24px)]" alt="小红书">
+            </div>
+            <span class="text-[min(3.2vw,14px)] leading-none">小红书</span>
+        </a>
+        <a href="#douyin" class="p-[min(2vw,8px)] hover:bg-black hover:text-white rounded flex-1 flex flex-col items-center justify-end group">
+            <div class="h-[min(6vw,28px)] flex items-center justify-center mb-[min(1.5vw,6px)]">
+                <i class="fa-brands fa-tiktok text-[min(5.5vw,24px)] leading-none text-black group-hover:text-white transition-colors"></i>
+            </div>
+            <span class="text-[min(3.2vw,14px)] leading-none">抖音</span>
+        </a>
+        <a href="#wechat" class="p-[min(2vw,8px)] hover:bg-green rounded flex-1 flex flex-col items-center justify-end group">
+            <div class="h-[min(6vw,28px)] flex items-center justify-center mb-[min(1.5vw,6px)]">
+                <i class="fa-brands fa-weixin text-[min(5.5vw,24px)] leading-none text-green group-hover:text-black transition-colors"></i>
+            </div>
+            <span class="text-[min(3.2vw,14px)] leading-none">公众号</span>
+        </a>
+        <a href="#internal" class="p-[min(2vw,8px)] hover:bg-yellow rounded flex-1 flex flex-col items-center justify-end group">
+            <div class="h-[min(6vw,28px)] flex items-center justify-center mb-[min(1.5vw,6px)]">
+                <i class="fas fa-users text-[min(5.5vw,24px)] leading-none text-yellow group-hover:text-black transition-colors"></i>
+            </div>
+            <span class="text-[min(3.2vw,14px)] leading-none">内部</span>
+        </a>
     </nav>
 
     <!-- 主内容区 (一页一专区) -->
@@ -197,8 +222,8 @@
                             </div>
                         </div>
                         <h2 class="text-xl md:text-xl lg:text-2xl xl:text-3xl font-bold mb-6">
-                            <span class="bg-pink px-2 inline-block mb-2">意向岗位：</span><br>
-                            <span class="bg-pink px-2 inline-block md:whitespace-nowrap">新媒体运营/内容运营/品牌营销方向</span>
+                            <span class="inline-block mb-2">意向岗位：</span><br>
+                            <span class="text-[#ec4899] inline-block md:whitespace-nowrap">新媒体运营/内容运营/品牌营销方向</span>
                         </h2>
                         
                         <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8 font-bold text-sm">
@@ -220,7 +245,7 @@
         <section id="xiaohongshu" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 md:p-12">
             <div class="max-w-5xl w-full mx-auto">
                 <div class="flex items-center mb-8">
-                    <div class="bg-[#ff2442] p-2 md:p-3 neo-border neo-shadow mr-4 transform -rotate-3 flex items-center justify-center">
+                    <div class="bg-[#ff2442] p-2 md:p-3 neo-border rounded-xl neo-shadow mr-4 transform -rotate-3 flex items-center justify-center">
                         <img src="./zuopingji_image/小红书.svg" class="w-10 h-10 md:w-12 md:h-12" alt="小红书">
                     </div>
                     <h2 class="text-3xl md:text-5xl font-black uppercase">小红书运营</h2>
@@ -352,7 +377,7 @@
         <section id="douyin" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 md:p-12">
             <div class="max-w-5xl w-full mx-auto">
                 <div class="flex items-center mb-10">
-                    <div class="bg-black text-white text-3xl md:text-4xl p-3 md:p-4 neo-border neo-shadow mr-4 transform rotate-3">
+                    <div class="bg-black text-white text-3xl md:text-4xl p-3 md:p-4 neo-border rounded-xl neo-shadow mr-4 transform rotate-3 flex items-center justify-center">
                         <i class="fa-brands fa-tiktok"></i>
                     </div>
                     <h2 class="text-3xl md:text-5xl font-black uppercase">抖音短视频</h2>
@@ -446,7 +471,7 @@
         <section id="wechat" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 md:p-12">
             <div class="max-w-5xl w-full mx-auto">
                 <div class="flex items-center mb-10">
-                    <div class="bg-[#07C160] text-white text-3xl md:text-4xl p-3 md:p-4 neo-border neo-shadow mr-4 transform -rotate-2">
+                    <div class="bg-[#07C160] text-white text-3xl md:text-4xl p-3 md:p-4 neo-border rounded-xl neo-shadow mr-4 transform -rotate-2 flex items-center justify-center">
                         <i class="fa-brands fa-weixin"></i>
                     </div>
                     <h2 class="text-3xl md:text-5xl font-black uppercase">微信公众号</h2>
