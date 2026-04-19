@@ -790,11 +790,44 @@
                 observer.observe(section);
             });
 
-            // 移动端平滑滚动兼容性优化（针对部分安卓浏览器）
+            // 自定义平滑滚动函数（兼容所有浏览器，包括微信/QQ/华为等内嵌浏览器）
+            function smoothScrollTo(container, targetPosition, duration) {
+                const startPosition = container.scrollTop;
+                const distance = targetPosition - startPosition;
+                let startTime = null;
+
+                // 使用 easeInOutQuad 缓动函数，让滚动更自然
+                function easeInOutQuad(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                    container.scrollTop = run;
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    } else {
+                        // 确保最终位置精确
+                        container.scrollTop = targetPosition;
+                    }
+                }
+
+                requestAnimationFrame(animation);
+            }
+
+            // 给所有导航链接绑定点击事件
+            // 桌面端：用原生 scrollIntoView，与 CSS snap 配合更顺滑
+            // 移动端：用自定义动画，兼容微信/QQ/华为等内嵌浏览器
             document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    // 强制获取当前绑定的 a 标签的 href，避免点击到内部图标时获取失败
+                    e.stopPropagation();
+                    
                     const href = e.currentTarget.getAttribute('href');
                     if (!href) return;
                     
@@ -802,17 +835,21 @@
                     const targetElement = document.getElementById(targetId);
                     const mainContent = document.getElementById('main-content');
                     
-                    if (targetElement && mainContent) {
-                        try {
-                            // 优先使用原生平滑滚动
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        } catch (error) {
-                            // 兼容老旧安卓浏览器的降级方案：直接修改滚动条位置
-                            mainContent.scrollTop = targetElement.offsetTop;
-                        }
+                    if (!targetElement || !mainContent) return;
+
+                    // 768px 是 Tailwind md 断点，桌面端走原生路径
+                    const isDesktop = window.innerWidth >= 768;
+                    
+                    if (isDesktop) {
+                        // 桌面端：原生平滑滚动，与 snap-mandatory 配合无冲突
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    } else {
+                        // 移动端：手动驱动动画，绕过各种安卓浏览器的兼容性问题
+                        const targetPosition = targetElement.offsetTop;
+                        smoothScrollTo(mainContent, targetPosition, 500);
                     }
                 });
             });
