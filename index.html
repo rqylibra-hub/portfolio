@@ -158,7 +158,7 @@
     <main id="main-content" class="flex-1 h-full overflow-y-auto md:snap-y md:snap-mandatory scroll-smooth no-scrollbar pb-28 md:pb-0">
         
         <!-- 1. 关于我 -->
-        <section id="about" class="min-h-screen w-full snap-start flex items-center justify-center p-6 md:p-12 relative">
+        <section id="about" class="min-h-screen w-full snap-start flex items-center justify-center p-6 pb-24 md:pb-12 md:p-12 relative">
             <div class="max-w-4xl w-full">
                 <div class="bg-white neo-border neo-shadow p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 relative overflow-hidden">
                     <!-- 装饰元素 -->
@@ -242,7 +242,7 @@
         </section>
 
         <!-- 2. 小红书运营 -->
-        <section id="xiaohongshu" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 md:p-12">
+        <section id="xiaohongshu" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 pb-24 md:pb-12 md:p-12">
             <div class="max-w-5xl w-full mx-auto">
                 <div class="flex items-center mb-8">
                     <div class="bg-[#ff2442] p-2 md:p-3 neo-border rounded-xl neo-shadow mr-4 transform -rotate-3 flex items-center justify-center">
@@ -374,7 +374,7 @@
         </section>
 
         <!-- 3. 抖音短视频 -->
-        <section id="douyin" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 md:p-12">
+        <section id="douyin" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 pb-24 md:pb-12 md:p-12">
             <div class="max-w-5xl w-full mx-auto">
                 <div class="flex items-center mb-10">
                     <div class="bg-black text-white text-3xl md:text-4xl p-3 md:p-4 neo-border rounded-xl neo-shadow mr-4 transform rotate-3 flex items-center justify-center">
@@ -468,7 +468,7 @@
         </section>
 
         <!-- 4. 微信公众号 -->
-        <section id="wechat" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 md:p-12">
+        <section id="wechat" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 pb-24 md:pb-12 md:p-12">
             <div class="max-w-5xl w-full mx-auto">
                 <div class="flex items-center mb-10">
                     <div class="bg-[#07C160] text-white text-3xl md:text-4xl p-3 md:p-4 neo-border rounded-xl neo-shadow mr-4 transform -rotate-2 flex items-center justify-center">
@@ -602,7 +602,7 @@
         </section>
 
         <!-- 5. 企业内部运营 -->
-        <section id="internal" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 md:p-12 relative">
+        <section id="internal" class="min-h-screen w-full snap-start flex flex-col justify-center p-6 pb-24 md:pb-12 md:p-12 relative">
             <div class="max-w-5xl w-full mx-auto">
                 <div class="flex items-center justify-center mb-10">
                     <h2 class="text-3xl md:text-5xl font-black uppercase text-center">
@@ -783,6 +783,21 @@
 
             sections.forEach(section => {
                 observer.observe(section);
+            });
+
+            // 移动端平滑滚动兼容性优化
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
         });
     </script>
